@@ -17,6 +17,15 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   try {
+    if (
+      !req.body.num1 ||
+      !req.body.num2 ||
+      typeof req.body.num1 !== "number" ||
+      typeof req.body.num2 !== "number"
+    ) {
+      res.status(400).json({ statusText: "ERROR", steps: {} });
+    }
+
     let { num1, num2 } = req.body;
     const steps = {};
     let carry = 0;
@@ -46,6 +55,6 @@ export default async function handler(
 
     res.status(200).json({ statusText: "OK", steps });
   } catch {
-    res.status(200).json({ statusText: "ERROR", steps: {} });
+    res.status(400).json({ statusText: "ERROR", steps: {} });
   }
 }

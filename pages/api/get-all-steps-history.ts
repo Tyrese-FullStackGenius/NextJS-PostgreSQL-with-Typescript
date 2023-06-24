@@ -10,7 +10,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  console.log(req.body.step);
   const response = await conn.query("SELECT NOW()");
   console.log(response.rows);
 
