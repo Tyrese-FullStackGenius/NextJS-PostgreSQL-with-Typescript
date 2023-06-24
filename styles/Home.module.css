@@ -74,6 +74,13 @@
   background: #e9e9e9;
 }
 
+.display_step div {
+  background: #232d3e;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
 .save_button {
   text-align: right;
 }
@@ -92,4 +99,16 @@
 
 .save_button button:hover {
   opacity: 0.8;
+}
+
+.yellow {
+  color: #ffea2f;
+}
+
+.cyan {
+  color: #2ff3ff;
+}
+
+.orange {
+  color: #ffa654;
 }

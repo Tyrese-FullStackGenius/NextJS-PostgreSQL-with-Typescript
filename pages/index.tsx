@@ -91,7 +91,26 @@ export default function Home() {
         </div>
 
         <div className={styles.display_step}>
-          <p>Steps</p>
+          <div>
+            <span className={styles.yellow}>{"{"}</span>
+            <br />
+            {Object.keys(steps).map((stepid) => (
+              <span key={stepid}>
+                <code className={styles.cyan}>&nbsp;&nbsp;"{stepid}"</code>
+                <code className={styles.yellow}>{': {"carryString": '}</code>
+                <code className={styles.orange}>
+                  "{steps[stepid]["carryString"]}"
+                </code>
+                <code className={styles.yellow}>{', "sumString": '}</code>
+                <code className={styles.orange}>
+                  "{steps[stepid]["sumString"]}"
+                </code>
+                <code className={styles.yellow}>{"},"}</code>
+                <br />
+              </span>
+            ))}
+            <span className={styles.yellow}>{"}"}</span>
+          </div>
         </div>
 
         <div className={styles.save_button}>
@@ -112,11 +131,7 @@ export default function Home() {
           font-size: 16px;
         }
         code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          font-family: Inter, Menlo, Monaco, Lucida Console, Liberation Mono,
             DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
         }
       `}</style>
@@ -126,9 +141,9 @@ export default function Home() {
         body {
           padding: 0;
           margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
+          font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI,
+            Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+            Helvetica Neue, sans-serif;
         }
         * {
           box-sizing: border-box;

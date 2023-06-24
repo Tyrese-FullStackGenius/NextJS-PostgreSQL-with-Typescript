@@ -12,8 +12,6 @@ export default async function handler(
 ) {
   try {
     const response = await conn.query("SELECT * FROM step_addition");
-    console.log(response.rows);
-
     res.status(200).json({ statusText: "OK", all_steps: response.rows });
   } catch (error) {
     res.status(400).json({ statusText: "ERROR", all_steps: [] });
