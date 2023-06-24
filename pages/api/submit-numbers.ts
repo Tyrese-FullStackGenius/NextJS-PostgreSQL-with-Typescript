@@ -18,8 +18,8 @@ export default async function handler(
 ) {
   try {
     if (
-      !req.body.num1 ||
-      !req.body.num2 ||
+      req.body.num1 === undefined ||
+      req.body.num2 === undefined ||
       typeof req.body.num1 !== "number" ||
       typeof req.body.num2 !== "number"
     ) {
@@ -54,7 +54,7 @@ export default async function handler(
     }
 
     res.status(200).json({ statusText: "OK", steps });
-  } catch {
+  } catch (error) {
     res.status(400).json({ statusText: "ERROR", steps: {} });
   }
 }

@@ -30,8 +30,7 @@ export default function Home() {
 
   const saveResultFunc = () => {
     saveResult(steps).then((res) => {
-      console.log(res);
-      if (res.statusText === "OK" && res.data.statusText === "OK") {
+      if (res.statusText === "Created" && res.data.statusText === "OK") {
         toast.success("Save Saved!", {
           position: "top-right",
           autoClose: 5000,

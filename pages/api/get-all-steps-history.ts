@@ -2,16 +2,20 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import { conn } from "../../utils/database";
 
 type Data = {
-  message: string;
-  time: string;
+  statusText: string;
+  all_steps: Array<Object>;
 };
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const response = await conn.query("SELECT NOW()");
-  console.log(response.rows);
+  try {
+    const response = await conn.query("SELECT * FROM step_addition");
+    console.log(response.rows);
 
-  res.status(200).json({ message: "Pong!", time: response.rows[0].now });
+    res.status(200).json({ statusText: "OK", all_steps: response.rows });
+  } catch (error) {
+    res.status(400).json({ statusText: "ERROR", all_steps: [] });
+  }
 }
