@@ -70,6 +70,7 @@
   padding: 30px 20px;
   margin: 10px 0;
   height: calc(100vh - 480px);
+  min-height: 200px;
   background: #e9e9e9;
 }
 
